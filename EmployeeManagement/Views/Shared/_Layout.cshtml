@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAS GLOBAL - EMS</title>
+    <link href="~/Content/page.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="https://masglobalconsulting.com/wp-content/uploads/sites/26/2019/07/cropped-MasGlobal_iconwhite-32x32.png" sizes="32x32">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background:beige;">
+        <div class="container">
+            <div class="navbar-left" style="font-size:24px">
+                <button class="navbar-toggler" type="button">&#9776;</button>
+                @Html.ActionLink("Employee Management System", "Index", "Employee", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+
+            <section class="navbar-mobile">
+                <nav class="nav nav-navbar ml-auto">
+                    <a class="nav-link active" href="#">Home</a>
+                </nav>
+            </section>
+
+        </div>
+    </nav>
+
+    <main class="main-content">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row gap-y align-items-center">
+
+                <div class="col-4 col-lg-3">
+                    <a href="index.html"><img src="https://masglobalconsulting.com/wp-content/uploads/sites/26/2019/05/MasGlobal_logo_full-1.png" alt="logo"></a>
+                </div>
+
+                <div class="col-7 col-lg-3 text-right order-lg-last">
+                    <div class="social">
+                        <a class="social-facebook" href="https://www.facebook.com/MASGlobalCo/"><i class="fa fa-facebook"></i></a>
+                        <a class="social-twitter" href="https://twitter.com/masglobalco"><i class="fa fa-twitter"></i></a>
+                        <a class="social-instagram" href="https://www.instagram.com/masglobalco/"><i class="fa fa-instagram"></i></a>
+                        <a class="social-linkedin" href="https://www.linkedin.com/company/mas-global-consulting-llc/"><i class="fa fa-dribbble"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-1 col-lg-6">
+                    <div class="nav nav-bold nav-uppercase nav-trim justify-content-lg-center">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/Scripts/page.min.js"></script>
+</body>
+</html>
