@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace EmployeeManagement.Data
                 HttpResponseMessage response = Get("Employees");
                 if (response.IsSuccessStatusCode)
                 {
-                    employees = serializer.Deserialize<List<EmployeeData>>(await response.Content.ReadAsStringAsync());
+                    employees = JsonConvert.DeserializeObject<List<EmployeeData>>(await response.Content.ReadAsStringAsync());
                 }
             }
             catch (System.Exception exception)
