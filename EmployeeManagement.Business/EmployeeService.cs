@@ -10,7 +10,12 @@ namespace EmployeeManagement.Business
 {
     public class EmployeeService : IEmployeeService
     {
-        readonly EmployeeRepository EmployeeRepo = new EmployeeRepository();
+        readonly IEmployeeRepository EmployeeRepo;
+        public EmployeeService(IEmployeeRepository employeeRepository)
+        {
+            EmployeeRepo = employeeRepository;
+        }
+
         public List<Employee> GetEmployee(long id)
         {
             var employees = EmployeeRepo.GetEmployees().Result;

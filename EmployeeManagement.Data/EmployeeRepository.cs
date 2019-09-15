@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Data
 {
-    public class EmployeeRepository : BaseRepository
+    public class EmployeeRepository : BaseRepository, IEmployeeRepository
     {
         public async Task<List<EmployeeData>> GetEmployees()
         {

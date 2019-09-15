@@ -189,6 +189,10 @@
       <Project>{E8FD484A-1CEB-4043-B8ED-C035A98B44A7}</Project>
       <Name>EmployeeManagement.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EmployeeManagement.Data\EmployeeManagement.Data.csproj">
+      <Project>{8C892035-E6A2-4A28-9B1C-9142C841B9A8}</Project>
+      <Name>EmployeeManagement.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
