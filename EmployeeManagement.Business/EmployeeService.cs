@@ -11,10 +11,10 @@ namespace EmployeeManagement.Business
     public class EmployeeService : IEmployeeService
     {
         readonly EmployeeRepository EmployeeRepo = new EmployeeRepository();
-        public Employee GetEmployee(long id)
+        public List<Employee> GetEmployee(long id)
         {
             var employees = EmployeeRepo.GetEmployees().Result;
-            return employees.ConvertAll(new Converter<EmployeeData, Employee>(EmployeeConverter)).FirstOrDefault(t => t.Id == id);
+            return employees.ConvertAll(new Converter<EmployeeData, Employee>(EmployeeConverter)).Where(t => t.Id == id).Select(t=>t).ToList();
         }
 
         public List<Employee> GetEmployees()

@@ -1,22 +1,64 @@
-﻿<section class="section">
+﻿@model EmployeeManagement.Models.SearchEmployee
+
+<section class="section">
     <div class="container section-header">
         <div class="bg-white rounded shadow-7 p-6">
             <h3>Employee Records</h3>
             <hr>
-            <form>
-                <div class="row">
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    @using (Ajax.BeginForm("employees", "api", new AjaxOptions { HttpMethod = "Get", OnSuccess = "emp.getEmployeeSuccess", OnFailure = "emp.getEmployeeFailure", OnBegin = "emp.getEmployeeStart", OnComplete = "emp.getEmployeeFinish", AllowCache = true }))
+                    {
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
+                            @Html.TextBoxFor(m => m.id, new { Class = "form-control", placeholder = "Employee Id" })
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" style="padding-top:11px !important;">Search Records</button>
+                                <button class="btn btn-default" type="submit" style="padding-top:11px !important;">Search Employee</button>
                             </span>
                         </div>
-                        <div class="col-lg-4"></div>
-                    </div>
+                    }
+                    <div class="col-lg-4"></div>
                 </div>
-            </form>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-12" id="divEmp">
+
+                </div>
+            </div>
         </div>
     </div>
+    <div class="ajax-loader">
+        <img src="https://pa1.narvii.com/6686/677f9a7b8649d7b5a58e077198d32b8e53fa5d62_hq.gif" class="img-responsive" />
+    </div>
 </section>
+<script>
+    class employee {
+
+        getEmployeeStart(data) {
+            $('.ajax-loader').css("visibility", "visible");
+        }
+
+        getEmployeeFinish(data) {
+            $('.ajax-loader').css("visibility", "hidden");
+        }
+
+        getEmployeeSuccess(data) {
+            $.ajax({
+                url: "@Url.Action("ListEmployees", "Employee", null, Request.Url.Scheme)",
+                method: "POST",
+                data: { searchedResult: data },
+                success: function (result) {
+                    $("#divEmp").html(result);
+                }
+            })
+        }
+
+        getEmployeeFailure(error) {
+            alert('Error occured while fetching employee detail. Please try again in sometime.');
+        }
+
+    }
+
+    var emp = new employee();
+</script>

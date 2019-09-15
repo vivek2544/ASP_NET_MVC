@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeManagement.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,12 @@ namespace EmployeeManagement.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View(new SearchEmployee());
+        }
+
+        public ActionResult ListEmployees(Employee[] searchedResult)
+        {
+            return View(searchedResult);
         }
     }
 }

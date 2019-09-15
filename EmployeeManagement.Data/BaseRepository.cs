@@ -5,7 +5,7 @@ using System.Web.Script.Serialization;
 
 namespace EmployeeManagement.Data
 {
-    public class BaseRepository
+    public abstract class BaseRepository
     {
         readonly protected JavaScriptSerializer serializer;
         readonly private HttpClient client;

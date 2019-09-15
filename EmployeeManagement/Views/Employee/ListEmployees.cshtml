@@ -1,0 +1,34 @@
+﻿@model EmployeeManagement.Models.Employee[]
+@{
+    Layout = null;
+    if (Model != null && Model.Length > 0)
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Contract Type</th>
+                    <th>Role Name</th>
+                    <th>Anual Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Length; i++)
+                {
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>@Model[i].Name</td>
+                        <td>@Model[i].ContractTypeName</td>
+                        <td>@Model[i].RoleName</td>
+                        <td>@Model[i].AnualSalary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h3> No Records Found</h3>
+    }
+}

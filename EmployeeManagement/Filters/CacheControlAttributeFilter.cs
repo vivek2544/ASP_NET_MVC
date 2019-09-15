@@ -10,19 +10,19 @@ namespace EmployeeManagement.Filters
 
         public CacheControlAttribute()
         {
-            MaxAge = 600;
+            MaxAge = 10;
         }
 
-        public override void OnActionExecuted(HttpActionExecutedContext context)
+        public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         {
-            if (context.Response != null)
-                context.Response.Headers.CacheControl = new CacheControlHeaderValue()
+            if (actionExecutedContext.Response != null)
+                actionExecutedContext.Response.Headers.CacheControl = new CacheControlHeaderValue()
                 {
                     Public = true,
                     MaxAge = TimeSpan.FromSeconds(MaxAge)
                 };
 
-            base.OnActionExecuted(context);
+            base.OnActionExecuted(actionExecutedContext);
         }
     }
 }

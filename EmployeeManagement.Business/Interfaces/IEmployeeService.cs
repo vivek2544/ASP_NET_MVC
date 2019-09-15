@@ -5,8 +5,9 @@ using System.Text;
 
 namespace EmployeeManagement.Business.Interfaces
 {
-    interface IEmployeeService
+    public interface IEmployeeService
     {
+        List<Employee> GetEmployee(long id);
         List<Employee> GetEmployees();
     }
 }
