@@ -11,4 +11,8 @@ Employee Management Project
 
     This project is developed using ASP.NET MVC. It consist of API Controller, uses Business service through Dependancy injection. Also API Controller method is decorated Cache Control Action filter which caches the api endpoint result for 10 seconds.
 
-   
+
+**Features Of EmployeeManagement.Business:**
+
+    This project is developed as a.NET Standard class library. .**NET Standard will** run on any .**NET Standard** compliant runtime, such as .**NET Core**, .**NET** Framework, Mono/Xamarin. 
+    Also I have implemented Factory Method pattern to generate concret DTO object. 
